@@ -123,27 +123,36 @@ y();
 
 console.log(x);
 ```
+```js
+// Is this code erroneous. Why?
+  x();
+  
+  const x = () => {
+    console.log(22);
+  }
+```
+
 - Variable declaration. Difference between var, let, const?
 ```js
-// Is this code erroneous
+// Is this code erroneous. Why?
 x = 2;
 var x;
 ```
 
 ```js
-// Is this code erroneous
+// Is this code erroneous. Why?
 x = 2;
 let x;
 ```
 
 ```js
-// Is this code erroneous
+// Is this code erroneous. Why?
 const x = {};
 x = 2;
 ```
 
 ```js
-// Is this code erroneous
+// Is this code erroneous. Why?
 const x = {};
 x.someProp = 2;
 ```
@@ -180,4 +189,28 @@ func.call(obj.anotherObj);
 const func2 = obj.sayHi.bind(obj.anotherObj);
 func2();
 ```
+- Scope and closures
 
+```js
+// Write a calculator
+
+const calculator = makeCalc();
+calculator.add(2);
+calculator.print();
+// prints 2
+calculator.mul(-2);
+calculator.print();
+// prints -4
+calculator.div(-2);
+calculator.print();
+// prints 2
+
+//advanced! if you want you can try to make calculator a function itself. It will return current value
+const l = calculator();
+console.log(l);
+//prints 2
+
+function makeCalc() {
+  // your code here
+}
+```
