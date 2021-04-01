@@ -213,4 +213,95 @@ console.log(l);
 function makeCalc() {
   // your code here
 }
+``` 
+
+- What is the difference between scope and context. During which time of program execution each one is created? (Answer is in book "You don't know JS. Scope in closures"
+- Asynchronous code. Methods that generate asynchronousity in browser, node.js
+- What is async/await in a nutshell?
+- Event loop. Stages of Event loop. Micro and macro tasks. 
+
+```js
+// Which output will this code produce?
+// Why?
+
+setTimeout(() => {
+  console.log(1);
+  Promise.resolve()
+    .then(() => {
+      console.log(2);
+    })
+    .then(() => {
+      console.log(3);
+    })
+}, 0)
+
+Promise.resolve().then(() => {
+  console.log(4);
+});
+console.log(5);
+Promise.resolve().then(() => {
+  console.log(6);
+});
+
+setTimeout(() => {
+  console.log(7);
+}, 0)
+
+``` 
+
+```js
+
+// Which output will this code produce?
+// Why? How to make it work correctly?
+
+for(var i = 0; i < 10; i++) {
+  setTimeout(() => {
+    console.log(i);
+  }, 0);
+}
+
+``` 
+
+```js
+
+// Which output will this code produce?
+// Why? 
+
+Promise.reject()
+  .then(() => console.log(1))
+  .catch(() => console.log(2))
+  .then(() => console.log(3))
+  .catch(() => console.log(4))
+  .finally(() => console.log(5))
+  
 ```
+
+- How does inheritance works in JS. Which two methods of inheritance implementation in JS do you know.
+
+```js
+
+// Write a class that does the following.
+// don't use class syntax, you are allowed to use prototypes only
+
+const pony = new Pet('pony');
+console.log(pet.type); //pony
+console.log(pet.speed); //25
+console.log(pet.printHi()) // Hi, i am pony. My speed is 25
+const tiger = new Tiger();
+console.log(tiger.type); // tiger
+console.log(tiger.speed); // 30
+console.log(tiger.printHi()) // Hi, i am tiger. My speed is 30
+
+// Write it again using es6 class syntax
+
+```
+
+```js
+
+// Write a sortNumbers method, on Array which will be available to use on any array and it'll sort numbers in ascending order. You are not allowed to use Array.sort in this task. (clue: If you are stuck, you may want to read what bubble sort is)
+
+const sortedArray = [].sortAscending();
+
+```
+
+
