@@ -215,7 +215,7 @@ function makeCalc() {
 }
 ``` 
 
-- What is the difference between scope and context. During which time of program execution each one is created? (Answer is in book "You don't know JS. Scope in closures"
+- What is the difference between scope and context. During which time of program execution each one is created? (Answer is in book "You don't know JS. Scope in closures")
 - Asynchronous code. Methods that generate asynchronousity in browser, node.js
 - What is async/await in a nutshell?
 - Event loop. Stages of Event loop. Micro and macro tasks. 
@@ -298,10 +298,13 @@ console.log(tiger.printHi()) // Hi, i am tiger. My speed is 30
 
 ```js
 
-// Write a sortNumbers method, on Array which will be available to use on any array and it'll sort numbers in ascending order. You are not allowed to use Array.sort in this task. (clue: If you are stuck, you may want to read what bubble sort is)
+// Write a sortNumbers method, on Array which will be available to use on any array, it'll sort numbers in ascending order.
+// It always creates a new array instead of sorting in place
+// You are not allowed to use Array.sort in this task. (clue: If you are stuck, you may want to read what bubble sort is)
 
-const sortedArray = [].sortAscending();
+const arr = [3, 2, 6, 5];
+const sortedArray = arr.sortAscending();
+console.log(arr)//[3, 2, 6, 5]
+console.log(sortedArray)//[2, 3, 5, 6]
 
 ```
-
-
