@@ -1,5 +1,15 @@
 # JavaScriptEssentials
 
+function makeCalc () {
+  let sum = 0
+  return {
+    add: (num) => {
+      sum += num
+      return sum
+    }
+  }
+}
+
 ## [Reading JS Basics Course](https://www.programiz.com/javascript/get-started)
 ## [Friendly and complete js tutorial that covers every topic](https://javascript.info)
 
