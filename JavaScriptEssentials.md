@@ -1,16 +1,5 @@
-https://www.youtube.com/watch?v=FS-XuQWGSM0
-
 # JavaScriptEssentials
 
-function makeCalc () {
-  let sum = 0
-  return {
-    add: (num) => {
-      sum += num
-      return sum
-    }
-  }
-}
 ## [Reading JS Basics Course](https://www.programiz.com/javascript/get-started)
 ## [Friendly and complete js tutorial that covers every topic](https://javascript.info)
 
@@ -277,6 +266,27 @@ func2(); // Pete
 ```js
 // Write a calculator
 
+function makeCalc () {
+  let sum = 0
+  return {
+    add(num) {
+      sum += num
+      return sum
+    },
+    print(){
+    	console.log(sum)
+    },
+    mul(num) {
+      sum *= num
+      return sum
+    },
+    div(num) {
+      sum /= num
+      return sum
+    }
+  }
+}
+
 const calculator = makeCalc();
 calculator.add(2);
 calculator.print();
@@ -304,6 +314,14 @@ function makeCalc() {
 - Event loop. Stages of Event loop. Micro and macro tasks. 
 
 ```js
+5
+4
+6
+1
+2
+3
+7
+
 // Which output will this code produce?
 // Why?
 
@@ -337,13 +355,35 @@ setTimeout(() => {
 // Which output will this code produce?
 // Why? How to make it work correctly?
 
+We need to change var to let, because var will be function-scoped, accessible everywhere, and will be bound to only 1-value (the final # of the loop. Let is block-scoped, and only accessible in the for loop itself. A new copy is created every iteration. Var has 1 copy, let has as many as loop
+
+var doesn't work with the settimeout because of how the loop and function are queued. by the time the settimeout is addressed, var points to 1 value.
+
+with let, every iteration of the loop closes the scope of the variable, so a new i is created for the loop counter, and the previous i is included in the closure of the function inside the loop (settimeout).
+
+with var, it has function scope, so every time the loop iterates, the variable is incremented across the whole function.. so there is no 0..1..2.. stored they all get incremented because they are one variable. The loop closes on the max value because it must update to check the inequality.
+
 for(var i = 0; i < 10; i++) {
   setTimeout(() => {
     console.log(i);
   }, 0);
 }
 
+//can fix the issue, because it creates a block scope wherein i 
+for(var i = 0; i < 10; i++) {
+  ((i) => {
+      setTimeout(() => {
+      console.log(i);
+      }, 0);
+  })(i);
+}
+
+
 ``` 
+
+closures--
+--lexical scoping, variables defined outside scope are already available inside every scope
+
 
 ```js
 
