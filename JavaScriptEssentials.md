@@ -451,4 +451,27 @@ const sortedArray = arr.sortAscending();
 console.log(arr)//[3, 2, 6, 5]
 console.log(sortedArray)//[2, 3, 5, 6]
 
+var arr = [3, 2, 6, 5];
+arr.sortAscending = function() {
+    let newArr = arr;
+    var i, j;
+    let n = newArr.length;
+    for (i = 0; i < n-1; i++){
+        for (j = 0; j < n-i-1; j++){
+            if (newArr[j] > newArr[j+1]){
+                var temp = newArr[j];
+                newArr[j] = newArr[j+1];
+                newArr[j+1] = temp;
+            }
+        }
+
+     }
+    
+    return newArr;
+	}
+
+ 
+  const sortedArray = arr.sortAscending();
+  console.log(sortedArray);
+
 ```
