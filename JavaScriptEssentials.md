@@ -322,6 +322,8 @@ function makeCalc() {
 3
 7
 
+because the order of execution is 1.microtasks, promises, then settimeouts in teh queue
+
 // Which output will this code produce?
 // Why?
 
@@ -414,6 +416,25 @@ const tiger = new Tiger();
 console.log(tiger.type); // tiger
 console.log(tiger.speed); // 30
 console.log(tiger.printHi()) // Hi, i am tiger. My speed is 30
+
+class Pet {
+	constructor(type){
+    	this.type = type;
+        this.speed = 25;
+    }
+    
+    printHi(){
+		console.log("hi");
+    }
+}
+
+class Tiger extends Pet {
+	constructor(){
+    	super("tiger");
+        this.speed = 30;
+    } 
+}
+
 
 // Write it again using es6 class syntax
 
