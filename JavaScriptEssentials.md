@@ -435,6 +435,30 @@ class Tiger extends Pet {
     } 
 }
 
+function Pet(type){
+	this.type = type;
+    this.speed = 25;
+}
+
+function Tiger() {
+  Pet.call(this, "tiger");
+  this.speed = 30;
+}
+
+Pet.prototype.printHi = function(){
+	console.log("hello i am " + this.type);
+}
+
+Tiger.prototype.printHi = function() {
+	console.log("hello i am " + this.type);
+
+}
+
+var pet = new Pet("james");
+var tig = new Tiger();
+pet.printHi();
+tig.printHi();
+
 
 // Write it again using es6 class syntax
 
